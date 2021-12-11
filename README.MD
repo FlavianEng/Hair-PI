@@ -1,4 +1,4 @@
-# Deno server boilerplate
+# 🦕 Deno server boilerplate
 Deno server boilerplate based on abc framework
 
 To run the server, open a terminal and run the command : 
