@@ -1,10 +1,6 @@
-import {
-  Application,
-  isHttpError,
-  Router,
-  Status,
-} from "https://deno.land/x/oak/mod.ts";
+import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 import router from "./router.ts";
+import { errorHandler } from "./src/middlewares/errorHandler.ts";
 
 export const app = new Application();
 
@@ -17,26 +13,7 @@ app.use(async (ctx, next) => {
   console.log(`${statusCode} ${ctx.request.method} ${ctx.request.url}`);
 });
 
-// TASK Finish the setup of the error handler
-// Error handler
-app.use(async (ctx, next) => {
-  try {
-    await next();
-  } catch (err) {
-    if (isHttpError(err)) {
-      switch (err.status) {
-        case Status.NotFound:
-          // handle NotFound
-          break;
-        default:
-          // handle other statuses
-      }
-    } else {
-      // rethrow if you can't handle the error
-      throw err;
-    }
-  }
-});
+app.use(errorHandler);
 
 const globalRouter = new Router();
 globalRouter.use("/api", router.routes());
