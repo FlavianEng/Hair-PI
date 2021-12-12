@@ -3,12 +3,11 @@ import { app } from "./app.ts";
 
 const port = parseInt(env().PORT) || 8000;
 
-app.addEventListener("listen", ({ hostname, port, secure: protocol }) => {
+app.addEventListener("listen", ({ port, secure: protocol }) => {
   console.log(
-    `⚡ Listening on: ${protocol ? "https://" : "http://"}${
-      hostname ??
-        "localhost"
-    }:${port} ⚡`,
+    `⚡ Listening on: ${
+      protocol ? "https://" : "http://"
+    }localhost:${port}/api ⚡`,
   );
 });
 
