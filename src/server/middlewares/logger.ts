@@ -1,4 +1,4 @@
-import { Context, Middleware } from "https://deno.land/x/oak/mod.ts";
+import { Context, Middleware } from "https://deno.land/x/oak@v10.6.0/mod.ts";
 
 export const logger: Middleware = async (
   ctx: Context,

@@ -1,4 +1,4 @@
-import { config as env } from "https://deno.land/x/dotenv/mod.ts";
+import { config as env } from "https://deno.land/x/dotenv@v3.2.0/mod.ts";
 import { app } from "./app.ts";
 
 const port = parseInt(env().PORT) || 8000;

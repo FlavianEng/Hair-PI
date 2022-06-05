@@ -21,4 +21,8 @@ To test the code, open a terminal and run the command :\
 `deno test --allow-net`\
 \
 If you want the test to fail on the first error, run the command :\
-`deno test --allow-net --fail-fast`\
+`deno test --allow-net --fail-fast`
+
+## TODO
+
+- Use import-maps

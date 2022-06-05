@@ -2,7 +2,7 @@ import {
   Context,
   isHttpError,
   Middleware,
-} from "https://deno.land/x/oak/mod.ts";
+} from "https://deno.land/x/oak@v10.6.0/mod.ts";
 
 export const errorHandler: Middleware = async (
   ctx: Context,

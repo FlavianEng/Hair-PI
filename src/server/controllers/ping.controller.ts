@@ -1,4 +1,4 @@
-import { Context, Status } from "https://deno.land/x/oak/mod.ts";
+import { Context, Status } from "https://deno.land/x/oak@v10.6.0/mod.ts";
 import * as pingService from "../services/ping.service.ts";
 
 export const sendPong = (ctx: Context) => {

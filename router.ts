@@ -1,5 +1,5 @@
-import { Router, Status } from "https://deno.land/x/oak/mod.ts";
-import pingRouter from "./src/routes/ping.route.ts";
+import { Router, Status } from "https://deno.land/x/oak@v10.6.0/mod.ts";
+import pingRouter from "./src/server/routes/ping.route.ts";
 
 const router = new Router();
 
