@@ -23,3 +23,4 @@ If you want to run the engine on a development environment, run the command :\
 ## TODO
 
 - Use import-maps
+- Add an english version
