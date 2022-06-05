@@ -1,27 +1,24 @@
-# 🦕 Deno server boilerplate
+# 🦕 Deno server
 
-Deno server boilerplate based on abc framework
+Deno server boilerplate based on oak framework
 
 **Run the server**\
 To run the server, open a terminal and run the command :\
-`deno run --allow-read --allow-net server.ts`\
+`deno task server` ou `deno run --allow-read --allow-net server.ts`\
 \
 If you want to run the server on a development environment, run the command :\
-`deno run --allow-read --allow-net --watch server.ts`\
+`deno task server:dev` ou `deno run --allow-read --allow-net --watch server.ts`
+
+# ⚙ Hair PI Engine ⚙
+
+Hair PI Engine is used to generate data for Hair PI
+
+**Run the engine**\
+To run the engine, open a terminal and run the command :\
+`deno task engine` ou `deno run --allow-read src/engine/index.ts`\
 \
-**Lint the code**\
-To run the linter, run the command :\
-`deno lint`\
-\
-If you want to run the linter at each change, run the command :\
-`deno lint --watch`\
-\
-**Test the code**\
-To test the code, open a terminal and run the command :\
-`deno test --allow-net`\
-\
-If you want the test to fail on the first error, run the command :\
-`deno test --allow-net --fail-fast`
+If you want to run the engine on a development environment, run the command :\
+`deno task engine:dev` ou `deno run --allow-read --watch src/engine/index.ts`
 
 ## TODO
 

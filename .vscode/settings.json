@@ -6,5 +6,6 @@
   "editor.defaultFormatter": "denoland.vscode-deno",
   "deno.testing.args": [
     "--allow-all"
-  ]
+  ],
+  "deno.config": "./deno.json"
 }

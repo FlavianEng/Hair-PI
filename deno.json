@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "engine": "deno run --allow-read src/engine/index.ts",
+    "engine:dev": "deno run --allow-read --watch src/engine/index.ts",
+    "server": "deno run --allow-read --allow-net server.ts",
+    "server:dev": "deno run --allow-read --allow-net --watch server.ts",
+    "test": "deno test --allow-net"
+  }
+}
