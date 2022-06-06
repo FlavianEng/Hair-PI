@@ -4,7 +4,6 @@ import {
   assertThrows,
 } from "https://deno.land/std@0.117.0/testing/asserts.ts";
 import { Engine } from "../../engine/engine.ts";
-import { EOL } from "../../engine/models/engine.model.ts";
 import {
   beforeEach,
   describe,
@@ -15,7 +14,7 @@ describe("Engine", () => {
   let engine: Engine;
 
   beforeEach(() => {
-    engine = new Engine(EOL.LF);
+    engine = new Engine();
   });
 
   it("It should create the engine instance", () => {

@@ -1,12 +1,6 @@
 import { EOL } from "./models/engine.model.ts";
 
 export class Engine {
-  eol: EOL;
-
-  constructor(eol: EOL) {
-    this.eol = eol;
-  }
-
   createWordPhoneticObject(data: string[]): Record<string, string> {
     if (data.length % 2) {
       throw new Error("Length must be even");
@@ -29,8 +23,17 @@ export class Engine {
     return wordPhoneticObject;
   }
 
-  createWordListFromPlainText(path: string): string[] {
+  createWordListFromPlainText(path: string, eol: EOL): string[] {
     const fileAsString: string = Deno.readTextFileSync(path);
-    return fileAsString.split(this.eol);
+    return fileAsString.split(eol);
+  }
+
+  async createJsonFile(
+    path: string,
+    data: Record<string, string>,
+  ): Promise<void> {
+    Deno.open(path, { create: true, write: true });
+    await Deno.writeTextFile(path, JSON.stringify(data));
+    console.info(`💾  .json file created to path: ${path}`);
   }
 }
