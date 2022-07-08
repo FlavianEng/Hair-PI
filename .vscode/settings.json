@@ -7,5 +7,6 @@
   "deno.testing.args": [
     "--allow-all"
   ],
-  "deno.config": "./deno.json"
+  "deno.config": "./deno.json",
+  "cSpell.language": "en,fr,fr-FR"
 }
