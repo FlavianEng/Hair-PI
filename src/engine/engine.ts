@@ -1,3 +1,8 @@
+import {
+  arrayOfTerminations,
+  fr_paths,
+  searchedPhonetics,
+} from "./engineSettings/fr.engineSettings.ts";
 import { EOL } from "./models/engine.model.ts";
 
 export class Engine {
@@ -163,5 +168,30 @@ export class Engine {
     return `${wordParts[0]}'${replacingWord}${hasOneLetterAtEnd ? "" : "'"}${
       hasOneLetterAtEnd ? "" : wordParts[1]
     }`;
+  };
+
+  // TASK Remove any type
+  // TASK Create a map of path
+  generateOneWordPuns = (plainTextFilePath: string): any => {
+    const arrayOfWordPhon = this.createWordListFromPlainText(plainTextFilePath);
+    const dataPairObject = this.createWordPhoneticObject(arrayOfWordPhon);
+
+    const arrayOfPhonetics = searchedPhonetics.flatMap((item) => item.phonetic);
+    const objectFilteredByPhonetics: Record<string, string> = this
+      .filterObjectByPhonetics(
+        arrayOfPhonetics,
+        dataPairObject,
+      );
+
+    const objectFilteredByVerbTerminations: Record<string, string> = this
+      .filterObjectByVerbTerminations(
+        arrayOfTerminations,
+        objectFilteredByPhonetics,
+      );
+
+    console.log(
+      "🚀   objectFilteredByVerbTerminations",
+      objectFilteredByVerbTerminations,
+    );
   };
 }

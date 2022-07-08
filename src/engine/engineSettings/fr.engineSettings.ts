@@ -1,6 +1,11 @@
 // INFO phonetic must be an array
 // INFO keySegment is transformed into a regex
 
+export const fr_paths = {
+  fr_words_txt: "../../../files/fr_words.txt",
+  fr_idioms_txt: "../../../files/fr_idioms.txt",
+};
+
 export const searchedPhonetics = [
   {
     word: "Hair",

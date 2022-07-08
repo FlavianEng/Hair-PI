@@ -139,8 +139,12 @@ orange`,
 
   it("Should replaceWordSegment", () => {
     const wordParts1 = "hâtif".split("tif");
-    const replacingWord= 'Tif';
-    const newWord1 = engine.replaceWordSegment(wordParts1, replacingWord, false);
+    const replacingWord = "Tif";
+    const newWord1 = engine.replaceWordSegment(
+      wordParts1,
+      replacingWord,
+      false,
+    );
 
     const wordParts2 = "apéritife".split("tif");
     const newWord2 = engine.replaceWordSegment(wordParts2, replacingWord, true);

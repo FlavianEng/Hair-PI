@@ -1,18 +1,24 @@
 import { Engine } from "./engine.ts";
+import { fr_paths } from "./engineSettings/fr.engineSettings.ts";
 import { EOL } from "./models/engine.model.ts";
 
-const paths = {
-  fr_idioms_txt: "./files/fr_idioms.txt",
-};
+const engine = new Engine(EOL.LF);
 
-const engine = new Engine();
+// TASK TEST THIS 
+// TASK TEST THIS 
+// TASK TEST THIS 
+// TASK TEST THIS 
+// TASK TEST THIS 
+// TASK TEST THIS 
+// TASK TEST THIS 
+engine.generateOneWordPuns(fr_paths.fr_words_txt)
 
-const wordPhoneticArray = engine.createWordListFromPlainText(
-  paths.fr_idioms_txt,
-  EOL.LF,
-);
 
-const wordPhoneticObject = engine.createWordPhoneticObject(wordPhoneticArray);
+// TODO Idioms
+// const wordPhoneticArray = engine.createWordListFromPlainText(
+//   fr_paths.fr_idioms_txt);
+
+// const wordPhoneticObject = engine.createWordPhoneticObject(wordPhoneticArray);
 
 // await engine.createJsonFile("./files/fr_idioms.json", wordPhoneticObject);
 
