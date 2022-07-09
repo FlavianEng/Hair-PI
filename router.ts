@@ -6,6 +6,7 @@ const router = new Router();
 router.all("/", ({ response }) => {
   response.status = Status.OK;
 });
+
 router.use("/ping", pingRouter.routes(), pingRouter.allowedMethods());
 
 router.all("/(.*)", (ctx) => {
