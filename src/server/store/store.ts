@@ -8,4 +8,11 @@ export class Store {
   public set fr_words(value: string[]) {
     this._fr_words = value;
   }
+
+  // TASK Create a function to shuffle an array of words
+  getOne(collection: string[]): string {
+    // TASK Shuffle the collection
+    const [first] = collection;
+    return first;
+  }
 }
