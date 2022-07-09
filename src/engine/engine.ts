@@ -1,6 +1,5 @@
 import {
   arrayOfTerminations,
-  fr_paths,
   searchedPhonetics,
 } from "./engineSettings/fr.engineSettings.ts";
 import { EOL } from "./models/engine.model.ts";
@@ -170,9 +169,7 @@ export class Engine {
     }`;
   };
 
-  // TASK Remove any type
-  // TASK Create a map of path
-  generateOneWordPuns = (plainTextFilePath: string): any => {
+  generateOneWordPuns = (plainTextFilePath: string): string[] => {
     const arrayOfWordPhon = this.createWordListFromPlainText(plainTextFilePath);
     const dataPairObject = this.createWordPhoneticObject(arrayOfWordPhon);
 
@@ -189,9 +186,54 @@ export class Engine {
         objectFilteredByPhonetics,
       );
 
-    console.log(
-      "🚀   objectFilteredByVerbTerminations",
-      objectFilteredByVerbTerminations,
-    );
+    const allWords = Object.keys(objectFilteredByVerbTerminations);
+    const wordSegments = searchedPhonetics.flatMap((item) => item.keySegment);
+    const result: string[] = [];
+
+    allWords.forEach((word) => {
+      for (let i = 0; i < wordSegments.length; i++) {
+        const wordSegment = wordSegments[i];
+
+        if (word.includes(wordSegment)) {
+          const searchedPhoneticsItem = searchedPhonetics.find((el) =>
+            el.keySegment.includes(wordSegment)
+          );
+
+          const numberOfOccurrenceInWord = this.findNumberOfOccurrenceInWord(
+            wordSegment,
+            word,
+          );
+          const replacingWord = searchedPhoneticsItem?.word;
+
+          if (replacingWord && numberOfOccurrenceInWord === 1) {
+            // Replace the detected occurrence by the word segment
+            let newWord: string;
+            const wordParts = word.split(wordSegment);
+            const lastLength = wordParts.length - 1;
+            const hasOneLetterAtEnd = wordParts[lastLength].length === 1;
+
+            if (hasOneLetterAtEnd) {
+              wordParts.pop();
+            }
+
+            wordParts[0] = this.capitalize(wordParts);
+
+            newWord = this.replaceWordSegment(
+              wordParts,
+              replacingWord,
+              hasOneLetterAtEnd,
+            );
+
+            if (newWord.includes("'-") || newWord.includes("-'")) {
+              newWord = this.removeDashQuotation(newWord);
+            }
+
+            result.push(newWord);
+          }
+        }
+      }
+    });
+
+    return result;
   };
 }
