@@ -7,4 +7,3 @@ Deno.test("It should get a pun", async () => {
   const { body } = await request.get("/api/pun").expect(200);
   assertExists(body.data);
 });
-
