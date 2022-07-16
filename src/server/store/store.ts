@@ -1,18 +1,40 @@
+import { Engine } from "../../engine/engine.ts";
+import { fr_paths } from "../../engine/engineSettings/fr.engineSettings.ts";
+
+type StoreCollection = {
+  fr: {
+    words: string[];
+  };
+};
+
+export enum StoreCollectionType {
+  words = "words",
+}
+
+export enum Language {
+  FR = "fr",
+}
+
 export class Store {
-  private _fr_words: string[] = [];
+  private store: StoreCollection = { fr: { words: [] } };
 
-  public get fr_words(): string[] {
-    return this._fr_words;
+  constructor(engine: Engine) {
+    // Registering every collections
+    this.store.fr.words = engine.generateOneWordPuns(fr_paths.fr_words_txt);
+
+    // Shuffling collections
+    this.shuffleCollection(this.store.fr.words);
   }
 
-  public set fr_words(value: string[]) {
-    this._fr_words = value;
+  public getOne(
+    language: Language,
+    collectionType: StoreCollectionType,
+  ): string {
+    const collection = this.store[language][collectionType];
+    return collection[collection.length * Math.random() | 0];
   }
 
-  // TASK Create a function to shuffle an array of words
-  getOne(collection: string[]): string {
-    // TASK Shuffle the collection
-    const [first] = collection;
-    return first;
+  private shuffleCollection(collection: string[]): void {
+    collection.sort(() => Math.random() - 0.5);
   }
 }

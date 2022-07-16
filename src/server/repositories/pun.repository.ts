@@ -1,6 +1,6 @@
 import { store } from "../../../server.ts";
+import { Language, StoreCollectionType } from "../store/store.ts";
 
-export const getOne = () => {
-  const message: string = store.getOne(store.fr_words);
-  return message;
+export const getOneWord = (language: Language) => {
+  return store.getOne(language, StoreCollectionType.words);
 };
