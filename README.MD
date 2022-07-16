@@ -20,7 +20,9 @@ To run the engine, open a terminal and run the command :\
 If you want to run the engine on a development environment, run the command :\
 `deno task engine:dev` ou `deno run --allow-read --watch src/engine/index.ts`
 
-## TODO
+## To continue
 
 - Use import-maps
+- Add french idioms
+- Add french celebrities
 - Add an english version
