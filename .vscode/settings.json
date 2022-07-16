@@ -10,6 +10,7 @@
   "deno.config": "./deno.json",
   "cSpell.language": "en,fr,fr-FR",
   "cSpell.words": [
-    "dtos"
+    "dtos",
+    "superoak"
   ]
 }

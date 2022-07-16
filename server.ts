@@ -18,4 +18,4 @@ app.addEventListener("listen", ({ port, secure: protocol }) => {
   );
 });
 
-await app.listen({ port: port });
+await app.listen({ port });
