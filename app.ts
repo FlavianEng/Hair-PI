@@ -8,7 +8,7 @@ export const app = new Application();
 
 app.use(logger);
 app.use(errorHandler);
-app.use(successHandler); 
+app.use(successHandler);
 
 const globalRouter = new Router();
 globalRouter.use("/api", router.routes());
